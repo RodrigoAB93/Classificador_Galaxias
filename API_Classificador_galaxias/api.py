@@ -1,4 +1,5 @@
 import pickle
+import sqlite3
 
 import numpy as np
 from fastapi import FastAPI
@@ -44,9 +45,9 @@ def classify_galaxy(data: InputData):
     data_concentration_u = data.petroR50_u / data.petroR90_u
     data_concentration_r = data.petroR50_r / data.petroR90_r
     data_concentration_z = data.petroR50_z /data.petroR90_z
-    data_u_g =data.u - data.g
+    data_u_g = data.u - data.g
     data_g_r = data.g - data.r
-    data_r_i =data.r - data.i
+    data_r_i = data.r - data.i
     data_i_z = data.i - data.z
     data_mCr4_r = data.mCr4_r
     data_mCr4_g = data.mCr4_g
@@ -60,11 +61,28 @@ def classify_galaxy(data: InputData):
     if model is not None:
         prediction = model.predict(features)[0]
         predicted_class = [prediction]
+
     else:
         predicted_class = 'Modelo não encontrado'
+
+    # Inserir os dados recebidos no banco de dados SQLite
+    conn = sqlite3.connect("classificadorgalaxias.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT INTO dados (u, r, g, i, z, deVAB_u, deVAB_g, deVAB_r, deVAB_i, deVAB_z, mCr4_u, mCr4_g, mCr4_r, mCr4_i, mCr4_z, petroR50_r, petroR90_r, petroR50_u, petroR90_u, petroR50_z, petroR90_z) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (
+            data.u, data.r, data.g, data.i, data.z, data.deVAB_u, data.deVAB_g, data.deVAB_r, data.deVAB_i, data.deVAB_z,
+            data.mCr4_u, data.mCr4_g, data.mCr4_r, data.mCr4_i, data.mCr4_z, data.petroR50_r, data.petroR90_r,
+            data.petroR50_u, data.petroR90_u, data.petroR50_z, data.petroR90_z
+        ))
+
+    conn.commit()
+    conn.close()
 
     return {"predicted_class": predicted_class}
 
 
+
+
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
