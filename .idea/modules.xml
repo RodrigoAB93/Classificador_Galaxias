@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Classificador_Galaxias.iml" filepath="$PROJECT_DIR$/.idea/Classificador_Galaxias.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../API_Classificador_galaxias/.idea/APIClassificadorGalaxias.iml" filepath="$PROJECT_DIR$/../API_Classificador_galaxias/.idea/APIClassificadorGalaxias.iml" />
     </modules>
   </component>
 </project>
