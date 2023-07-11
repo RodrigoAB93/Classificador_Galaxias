@@ -1,0 +1,50 @@
+Spiral:
+{
+  "u": 17.8,
+  "r": 0.956,
+  "g": 625.4,
+  "i": 42.7,
+  "z": 68.9,
+  "deVAB_u": 11.2,
+  "deVAB_g": 10.11,
+  "deVAB_r": 105.7,
+  "deVAB_i": 830.5,
+  "deVAB_z": 81.3,
+  "mCr4_u": 1.7,
+  "mCr4_g": 956.9,
+  "mCr4_r": 16.9,
+  "mCr4_i": 68.1,
+  "mCr4_z": 670.9,
+  "petroR50_r": 6.9,
+  "petroR90_r": 7.3,
+  "petroR50_u": 1.8,
+  "petroR90_u": 9.2,
+  "petroR50_z": 7,
+  "petroR90_z": 6.64
+} 
+
+Elipitica:
+
+{
+  "u": 17.8,
+  "r": 0.956,
+  "g": 625.4,
+  "i": 42.7,
+  "z": 68.9,
+  "deVAB_u": 11.2,
+  "deVAB_g": 10.11,
+  "deVAB_r": 105.7,
+  "deVAB_i": 830.5,
+  "deVAB_z": 81.3,
+  "mCr4_u": 1.7,
+  "mCr4_g": 956.9,
+  "mCr4_r": 16.9,
+  "mCr4_i": 68.1,
+  "mCr4_z": 670.9,
+  "petroR50_r": 662.9,
+  "petroR90_r": 758.3,
+  "petroR50_u": 16.8,
+  "petroR90_u": 9.2,
+  "petroR50_z": 70.8,
+  "petroR90_z": 60.64
+}
